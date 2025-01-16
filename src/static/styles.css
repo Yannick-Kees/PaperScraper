@@ -1,0 +1,109 @@
+/* styles.css */
+
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fefefe;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Header styling */
+h1 {
+    color: #ff6600; /* Orange for the main title */
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Form section */
+form {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    background: #fffaf0; /* Slight orange tint */
+    border: 1px solid #ff6600;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e65500;
+}
+
+/* Paper list section */
+ul {
+    list-style-type: none;
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 0;
+}
+
+li {
+    background: #fffaf0; /* Slight orange tint */
+    border: 1px solid #ff6600;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+    color: #ff6600; /* Highlight paper titles */
+}
+
+p {
+    margin: 5px 0;
+    color: #444;
+}
+
+a {
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #ff6600;
+    color: #fff;
+    font-size: 0.9rem;
+}

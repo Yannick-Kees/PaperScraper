@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paper List ING</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Paper List</h1>
+    <form method="POST" action="/filter">
+        <label for="filter_days">Filter papers from the last:</label>
+        <select name="filter_days" id="filter_days">
+            <option value="1">1 day</option>
+            <option value="2">2 days</option>
+            <option value="3">3 days</option>
+            <option value="7">7 days</option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+    <br>
+    {% if filter_days %}
+        <p>Showing papers from the last {{ filter_days }} day(s).</p>
+    {% endif %}
+    <ul>
+        {% for paper in papers %}
+            <li>
+                <h2>{{ paper.title }}
+
+                </h2>               
+                <p>
+                    <strong>
+                        Date:
+                    </strong> 
+                    {{ paper.date.strftime('%Y-%m-%d %H:%M:%S') }}
+                </p>               
+                <p>
+                    <strong>Summary:</strong> {{ paper.summary }}
+                </p>            
+                <p><a href="{{ paper.url }}" target="_blank" >Read more</a>
+                </p>   
+            </li>       
+            {% endfor %}   
+        </ul>
+    </body>
+    </html>
+

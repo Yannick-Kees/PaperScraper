@@ -1,0 +1,6 @@
+services:
+  ki-server:
+    build: .
+    network_mode: host
+    container_name: python-script
+    image: registry.github.com:v07042024_1045
