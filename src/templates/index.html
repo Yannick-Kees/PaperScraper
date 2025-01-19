@@ -23,7 +23,8 @@
     {% endif %}
     <ul>
         {% for paper in papers %}
-            <li>
+            <li style="display: flex; align-items: flex-start; padding: 10px; border-bottom: 1px solid #ddd;">
+                <div style="flex: 1; display: flex; flex-direction: column;">
                 <h2>{{ paper.title }}
 
                 </h2>               
@@ -32,15 +33,20 @@
                         Date:
                     </strong> 
                     {{ paper.date.strftime('%Y-%m-%d %H:%M:%S') }}
-                </p>               
+                </p>               <br>
                 <p>
                     <strong>Summary:</strong> {{ paper.summary }}
                 </p>            
                 <p><a href="{{ paper.url }}" target="_blank" >Read more</a>
-                </p>   
+                </p>  </div>
+                <div class="score"> 
                 <p>Score: <span id="score-{{ paper.id | replace(' ', '-') }}">{{ paper.score }}</span></p>
-            <button onclick="vote('{{ paper.id }}', 'upvote')">&#9650;</button>
-            <button onclick="vote('{{ paper.id }}', 'downvote')">&#9660;</button>
+            
+
+                <button onclick="vote('{{ paper.id }}', 'upvote')">&#9650;</button>
+                <br> <br> 
+                <button onclick="vote('{{ paper.id }}', 'downvote')">&#9660;</button>
+            </div>
             </li>       
             {% endfor %}   
         </ul>

@@ -107,3 +107,33 @@ footer {
     color: #fff;
     font-size: 0.9rem;
 }
+
+
+li {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Content Container: Title, Date, Description */
+li > div:first-child {
+    flex: 1; /* Takes up all available space except for the center-right box */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Right side box */
+.score {
+    width: 90px; /* Set the width of the center-right box */
+    text-align: center;
+    scale: 80%;
+    background-color: #fffcf2;
+    border: 1px solid #ff6600;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin-left: 10px; /* Ensure spacing between content and box */
+    margin-right: -60px;
+}
