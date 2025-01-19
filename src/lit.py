@@ -17,6 +17,7 @@ class Paper:
         self.date = date
         self.summary = summary.replace("\n","")
         self.url = url
+        self.id = url.split('/')[-1]
 
 def is_within_last_week(given_date):
     # Get the current date

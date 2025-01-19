@@ -3,6 +3,7 @@
 <head>
     <title>Paper List ING</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <h1>Paper List</h1>
@@ -37,9 +38,32 @@
                 </p>            
                 <p><a href="{{ paper.url }}" target="_blank" >Read more</a>
                 </p>   
+                <p>Score: <span id="score-{{ paper.id | replace(' ', '-') }}">{{ paper.score }}</span></p>
+            <button onclick="vote('{{ paper.id }}', 'upvote')">&#9650;</button>
+            <button onclick="vote('{{ paper.id }}', 'downvote')">&#9660;</button>
             </li>       
             {% endfor %}   
         </ul>
+
+        <script>
+            function vote(articleTitle, voteType) {
+                const postData = { article_url: articleTitle, vote_type: voteType };
+                console.log('Sending POST request:', postData);
+                $.ajax({
+                    url: '/vote',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ article_title: articleTitle, vote_type: voteType }),
+                    success: function(response) {
+                        let safeTitle = articleTitle.replace(/ /g, '-');
+                        $('#score-' + safeTitle).text(response.score);
+                    },
+                    error: function(error) {
+                        alert('Error: ' + error.responseJSON.error);
+                    }
+                });
+            }
+        </script>
     </body>
     </html>
 
