@@ -12,12 +12,13 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 class Paper:
-    def __init__(self, title, date, summary, url):
-        self.title = title.replace("\n","")
+    def __init__(self, title, date, summary, url, authors):
+        self.title = title
         self.date = date
-        self.summary = summary.replace("\n","")
+        self.summary = summary
         self.url = url
         self.id = url.split('/')[-1]
+        self.authors = authors
 
 def is_within_last_week(given_date):
     # Get the current date
@@ -47,6 +48,7 @@ def lit_list(query):
 
     # `results` is a generator; you can iterate over its elements one by one...
     for r in client.results(search):
-        papers.append(Paper(title=r.title, date=r.published, summary=r.summary, url=str(r)))
+        author_string=  "; ".join(author.name for author in r.authors)
+        papers.append(Paper(title=r.title, authors=author_string, date=r.published, summary=r.summary, url=str(r)))
         
     return papers

@@ -35,7 +35,8 @@ def index():
                 'date': article.date,
                 'summary': article.summary,
                 'url': article.url,
-                'id': article.id
+                'id': article.id,
+                'authors': article.authors
             }
             
     articles_with_votes = [
