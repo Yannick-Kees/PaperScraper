@@ -1,9 +1,2 @@
-# PythonTemplate
-Python Template for DevOps Workflow
-
-
-
-Copyright Images:
-
-https://pixabay.com/de/illustrations/mauer-mauerwerk-fassade-2059909/
-https://pixabay.com/de/vectors/spotify-spotify-symbol-spotify-logo-3383938/
+# Paper Scraper
+Website to scraper latest papers from archive including the given keywords. Also includes a ranking feature.
