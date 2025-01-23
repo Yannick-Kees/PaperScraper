@@ -17,7 +17,7 @@ class Paper:
         self.date = date
         self.summary = summary
         self.url = url
-        self.id = url.split('/')[-1]
+        self.id = url.split('/')[-1].replace(".","-")
         self.authors = authors
 
 def is_within_last_week(given_date):

@@ -55,6 +55,7 @@ def index():
 def vote():
     data = request.json
     article_title = data.get('article_title')
+    print(article_title)
     vote_type = data.get('vote_type')
 
     if article_title not in articles_db:

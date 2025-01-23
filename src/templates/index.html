@@ -47,7 +47,7 @@
                 <p><a href="{{ paper.url }}" target="_blank" >Read more</a>
                 </p>  </div>
                 <div class="score"> 
-                <p>Score: <span id="score-{{ paper.id | replace(' ', '-') }}">{{ paper.score }}</span></p>
+                <p>Score: <span id="score-{{ paper.id }}">{{ paper.score }}</span></p>
             
 
                 <button onclick="vote('{{ paper.id }}', 'upvote')">&#9650;</button>
@@ -69,6 +69,7 @@
                     data: JSON.stringify({ article_title: articleTitle, vote_type: voteType }),
                     success: function(response) {
                         let safeTitle = articleTitle.replace(/ /g, '-');
+                        console.log(safeTitle)
                         $('#score-' + safeTitle).text(response.score);
                     },
                     error: function(error) {
